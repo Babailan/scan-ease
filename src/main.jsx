@@ -32,7 +32,7 @@ const router = createHashRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <main className="dark:bg-black dark:text-white min-h-screen bg-white text-black">
-      {/* <RouterProvider router={router}></RouterProvider> */}
+      <RouterProvider router={router}></RouterProvider>
     </main>
   </React.StrictMode>
 );

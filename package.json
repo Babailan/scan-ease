@@ -6,7 +6,7 @@
     "dev": "vite",
     "build-react": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "electron": "nodemon --exec electron . --dev",
+    "electron": "nodemon --exec clear && electron . --dev",
     "package": "electron-forge package",
     "preview": "electron-forge start",
     "make": "electron-forge make",
@@ -49,7 +49,9 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "linux"
+            "linux",
+            "win32",
+            "darwin"
           ]
         }
       ]
