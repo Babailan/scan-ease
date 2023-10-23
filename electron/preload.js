@@ -1,3 +1,5 @@
-const { contextBridge } = require("electron");
+const { contextBridge, ipcRenderer } = require("electron");
 
-contextBridge.exposeInMainWorld("potangina", "gago");
+contextBridge.exposeInMainWorld("electronAPI", {
+  openFile: () => ipcRenderer.invoke("dialog:openFile"),
+});

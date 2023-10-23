@@ -1,14 +1,14 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
     minWidth: 800,
     minHeight: 600,
-    icon: path.join(__dirname, "icon.jpg"),
-    title: "ScanEase",
+    width: 1200,
+    height: 600,
+    icon: path.join(__dirname, "icon.png"),
+    title: "Scan Studio",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -23,7 +23,13 @@ function createWindow() {
     win.loadFile(path.join(__dirname, "../dist/index.html"));
   }
 }
-
-app.whenReady().then(() => {
+async function handleFileOpen() {
+  const { canceled, filePaths } = await dialog.showOpenDialog({});
+  if (!canceled) {
+    return filePaths[0];
+  }
+}
+app.whenReady().then(async () => {
+  ipcMain.handle("dialog:openFile", handleFileOpen);
   createWindow();
 });

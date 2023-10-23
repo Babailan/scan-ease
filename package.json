@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build-react": "vite build",
+    "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "electron": "nodemon --exec clear && electron . --dev",
+    "electron": "nodemon --exec electron . --dev",
     "package": "electron-forge package",
     "preview": "electron-forge start",
     "make": "electron-forge make",

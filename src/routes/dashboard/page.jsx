@@ -8,6 +8,7 @@ function DashBoardPage() {
   return (
     <>
       <DefaultHeader>Exclusive Dashboard</DefaultHeader>
+      <div className="w-full relative"></div>
     </>
   );
 }
