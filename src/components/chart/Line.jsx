@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-
 import { Line as LineChartJS } from "react-chartjs-2";
 
 // data = { labels:string[],data:number[]}

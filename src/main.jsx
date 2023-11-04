@@ -36,5 +36,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </main>
   </React.StrictMode>
 );
-
-console.log(window["set-title"]("putangina"));

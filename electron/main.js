@@ -1,24 +1,27 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 
-function createWindow() {
+async function createWindow() {
   const win = new BrowserWindow({
     minWidth: 800,
     minHeight: 600,
     width: 1200,
     height: 600,
     icon: path.join(__dirname, "icon.png"),
-    title: "Scan Studio",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
+    fullscreen: true,
   });
+  win.setTitle("Scan Ease");
 
   if (process.argv.includes("--dev")) {
-    console.log(
-      "If the page didn't load make sure the react port is correct and running correctly."
-    );
-    win.loadURL("http://localhost:5173");
+    console.log("Dev Mode");
+    try {
+      await win.loadURL("http://localhost:5173");
+    } catch (error) {
+      console.log("Make sure you start the development mode");
+    }
   } else {
     win.loadFile(path.join(__dirname, "../dist/index.html"));
   }
